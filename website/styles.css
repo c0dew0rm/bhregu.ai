@@ -424,6 +424,8 @@ html[data-stage="contact"] body::before {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
 }
@@ -610,8 +612,11 @@ section {
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
@@ -681,8 +686,10 @@ section {
 }
 
 .how-title {
-    font-size: 1.25rem;
-    font-weight: 800;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
 }
@@ -758,15 +765,19 @@ section {
 }
 
 .flip-card-front h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
 
 .flip-card-back h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
     color: white;
 }
@@ -879,8 +890,10 @@ section {
 }
 
 .additional-service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
 }
@@ -1078,8 +1091,10 @@ section {
 }
 
 .quick-win-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
@@ -1266,7 +1281,7 @@ section {
 .footer {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: white;
-    padding: 5rem 0 2rem;
+    padding: 4rem 0 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -1283,8 +1298,8 @@ section {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 3rem;
     margin-bottom: 3rem;
     position: relative;
     z-index: 1;
@@ -1332,9 +1347,10 @@ section {
 
 .footer-links-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
     gap: 2rem;
     align-items: start;
+    justify-self: end;
 }
 
 .footer-link-group {
@@ -1371,7 +1387,7 @@ section {
 }
 
 .footer-bottom {
-    padding-top: 3rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
