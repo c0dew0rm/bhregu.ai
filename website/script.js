@@ -62,11 +62,14 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll(
-        '.service-card, .service-detail-section, .tech-category, .quick-win-card, .risk-item'
+    // Reveal animations (staggered)
+    const revealTargets = document.querySelectorAll(
+        '.section-header, .how-card, .tech-category, .flip-card, .additional-service-card, .quick-win-card, .risk-item, .contact-content'
     );
-    
-    animateElements.forEach(el => {
+
+    revealTargets.forEach((el, idx) => {
+        el.classList.add('reveal');
+        el.style.setProperty('--reveal-delay', `${Math.min(idx * 35, 240)}ms`);
         observer.observe(el);
     });
 });
@@ -102,16 +105,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Service card hover effects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+// (Removed) legacy .service-card hover effects — we now use flip-cards.
 
 // Counter animation for stats
 const animateCounter = (element, target, duration = 2000) => {
@@ -174,6 +168,83 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Golden Circle progress (Why/How/What) synced to scroll
+const gc = document.getElementById('gcProgress');
+const gcLine = gc ? gc.querySelector('.gc-line') : null;
+const gcSteps = gc ? Array.from(gc.querySelectorAll('.gc-step')) : [];
+
+const setGCActive = (key) => {
+    if (!gc) return;
+    gcSteps.forEach((btn) => {
+        const k = btn.getAttribute('data-gc');
+        btn.classList.toggle('active', k === key);
+        // mark previous steps as done
+        const order = ['why', 'how', 'what'];
+        btn.classList.toggle('done', order.indexOf(k) < order.indexOf(key));
+    });
+    if (gcLine) {
+        gcLine.classList.remove('why', 'how', 'what');
+        gcLine.classList.add(key);
+    }
+};
+
+if (gc) {
+    const showOnScroll = () => {
+        if (window.scrollY > 120) gc.classList.add('is-visible');
+        else gc.classList.remove('is-visible');
+    };
+    const targets = [
+        { key: 'why', el: document.querySelector('#why') },
+        { key: 'how', el: document.querySelector('#how') },
+        { key: 'what', el: document.querySelector('#services') }
+    ].filter(t => t.el);
+
+    let rafId = null;
+
+    const update = () => {
+        rafId = null;
+        showOnScroll();
+
+        if (!targets.length) return;
+        const focusY = (window.innerHeight || 1) * 0.45;
+        let best = targets[0];
+        let bestDist = Number.POSITIVE_INFINITY;
+
+        targets.forEach((t) => {
+            const r = t.el.getBoundingClientRect();
+            const center = r.top + r.height / 2;
+            const dist = Math.abs(center - focusY);
+            if (dist < bestDist) {
+                bestDist = dist;
+                best = t;
+            }
+        });
+
+        if (best) setGCActive(best.key);
+    };
+
+    const requestUpdate = () => {
+        if (rafId != null) return;
+        rafId = requestAnimationFrame(update);
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+    update();
+
+    // Click-to-scroll
+    gcSteps.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-gc');
+            const map = { why: '#why', how: '#how', what: '#services' };
+            const target = document.querySelector(map[key]);
+            if (!target) return;
+            const y = target.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+    });
+}
 
 // Add typing effect to hero title (optional enhancement)
 const typeWriter = (element, text, speed = 100) => {
