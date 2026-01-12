@@ -200,6 +200,18 @@ if (gc) {
         { key: 'what', el: document.querySelector('#services') }
     ].filter(t => t.el);
 
+    const stageTargets = [
+        { key: 'why', el: document.querySelector('#why') },
+        { key: 'how', el: document.querySelector('#how') },
+        { key: 'how', el: document.querySelector('#tech-stack') },
+        { key: 'what', el: document.querySelector('#services') },
+        { key: 'proof', el: document.querySelector('#quick-wins') },
+        { key: 'trust', el: document.querySelector('.risk-mitigation') },
+        { key: 'contact', el: document.querySelector('#contact') }
+    ]
+        .filter(t => t.el)
+        .map((t) => ({ ...t, anchor: t.el.querySelector?.('.section-header') || t.el }));
+
     let rafId = null;
 
     const update = () => {
@@ -222,6 +234,22 @@ if (gc) {
         });
 
         if (best) setGCActive(best.key);
+
+        // Update global stage for subtle transitions (works both scroll directions).
+        if (stageTargets.length) {
+            const stageFocusY = (window.innerHeight || 1) * 0.6;
+            let current = stageTargets[0].key;
+            let best = Number.NEGATIVE_INFINITY;
+            stageTargets.forEach((t) => {
+                const r = t.anchor.getBoundingClientRect();
+                const delta = r.top - stageFocusY;
+                if (delta <= 0 && delta > best) {
+                    best = delta;
+                    current = t.key;
+                }
+            });
+            document.documentElement.dataset.stage = current;
+        }
     };
 
     const requestUpdate = () => {

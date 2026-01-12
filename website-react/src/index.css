@@ -42,6 +42,62 @@ body {
     overflow-x: hidden;
 }
 
+/* Subtle stage-based ambience (Golden Circle philosophy) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: -25%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(40% 35% at 20% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
+        radial-gradient(38% 30% at 80% 30%, rgba(139, 92, 246, 0.16) 0%, transparent 72%),
+        radial-gradient(30% 30% at 55% 85%, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+    filter: blur(45px) saturate(1.1);
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0);
+    transition:
+        filter 650ms var(--reveal-ease),
+        opacity 650ms var(--reveal-ease),
+        transform 650ms var(--reveal-ease);
+}
+
+html[data-stage="why"] body::before {
+    filter: blur(46px) saturate(1.08) hue-rotate(0deg);
+    opacity: 0.52;
+    transform: translate3d(0%, 0%, 0);
+}
+
+html[data-stage="how"] body::before {
+    filter: blur(46px) saturate(1.12) hue-rotate(10deg);
+    opacity: 0.56;
+    transform: translate3d(-1.2%, -0.8%, 0);
+}
+
+html[data-stage="what"] body::before {
+    filter: blur(46px) saturate(1.1) hue-rotate(22deg);
+    opacity: 0.56;
+    transform: translate3d(1.0%, -0.6%, 0);
+}
+
+html[data-stage="proof"] body::before {
+    filter: blur(46px) saturate(1.14) hue-rotate(34deg);
+    opacity: 0.58;
+    transform: translate3d(1.2%, 0.4%, 0);
+}
+
+html[data-stage="trust"] body::before {
+    filter: blur(48px) saturate(1.05) hue-rotate(16deg);
+    opacity: 0.5;
+    transform: translate3d(-0.6%, 0.8%, 0);
+}
+
+html[data-stage="contact"] body::before {
+    filter: blur(48px) saturate(1.06) hue-rotate(8deg);
+    opacity: 0.48;
+    transform: translate3d(0%, 1.2%, 0);
+}
+
 /* Golden Circle scroll progress (Why / How / What) */
 .gc-progress {
     position: fixed;
@@ -185,6 +241,12 @@ body {
         opacity: 1;
         transform: none;
         filter: none;
+    }
+    body::before {
+        transition: none !important;
+        transform: none !important;
+        filter: blur(45px) saturate(1.05) !important;
+        opacity: 0.45 !important;
     }
 }
 
