@@ -33,10 +33,10 @@ const Contact = () => {
       <div className="container">
         <div className="contact-content">
           <div className="contact-text">
-            <h2>Ready to Transform Your Business with AI?</h2>
+            <h2>Let’s build AI you can trust</h2>
             <p>
-              Let's discuss how we can accelerate your AI journey. 
-              From strategy to implementation, we're here to help.
+              If you believe AI should be measurable, safe, and useful in the real world, let’s talk.
+              We’ll help you find the right use-case, ship fast, and scale responsibly.
             </p>
             <div className="contact-info">
               <div className="contact-item">
@@ -45,7 +45,7 @@ const Contact = () => {
               </div>
               <div className="contact-item">
                 <strong>Schedule:</strong>
-                <a href="#contact">Book a consultation</a>
+                <a href="#contact">Book a 20‑min intro call</a>
               </div>
             </div>
           </div>

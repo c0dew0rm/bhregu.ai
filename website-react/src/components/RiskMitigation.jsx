@@ -48,17 +48,17 @@ const risks = [
   {
     icon: <IconShield />,
     title: 'Hallucination Prevention',
-    description: 'Human verification workflows and confidence thresholds to ensure accurate outputs'
+    description: 'Evaluation, citations, and human review loops for high‑stakes decisions.'
   },
   {
     icon: <IconLock />,
     title: 'Data Privacy & Compliance',
-    description: 'Private deployments with clear data retention policies and regulatory compliance'
+    description: 'Private deployments, access controls, and retention policies that match your risk posture.'
   },
   {
     icon: <IconChart />,
     title: 'Model Drift Detection',
-    description: 'Continuous monitoring with automated retraining triggers in managed service plans'
+    description: 'Monitoring + drift detection so quality improves over time, not degrades.'
   }
 ]
 
@@ -67,8 +67,8 @@ const RiskMitigation = () => {
     <section className="risk-mitigation">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Risk Management & Trust</h2>
-          <p className="section-subtitle">Proactive mitigation strategies for enterprise AI adoption</p>
+          <h2 className="section-title">Trust & risk</h2>
+          <p className="section-subtitle">Because enterprise AI succeeds only when it’s safe, compliant, and accountable.</p>
         </div>
         <div className="risk-grid">
           {risks.map((risk, index) => (

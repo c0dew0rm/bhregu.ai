@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import HowWeWork from './components/HowWeWork'
 import ServicesOverview from './components/ServicesOverview'
 import DetailedServices from './components/DetailedServices'
 import TechStack from './components/TechStack'
@@ -14,9 +15,10 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <HowWeWork />
+      <TechStack />
       <ServicesOverview />
       <DetailedServices />
-      <TechStack />
       <QuickWins />
       <RiskMitigation />
       <Contact />

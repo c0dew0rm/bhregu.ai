@@ -33,10 +33,11 @@ const Navbar = () => {
           <span className="logo">Bhregu<span className="logo-accent">.ai</span></span>
         </div>
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <li><a href="#services" onClick={(e) => handleNavClick(e, '#services')}>Services</a></li>
-          <li><a href="#tech-stack" onClick={(e) => handleNavClick(e, '#tech-stack')}>Tech Stack</a></li>
-          <li><a href="#quick-wins" onClick={(e) => handleNavClick(e, '#quick-wins')}>Quick Wins</a></li>
-          <li><a href="#contact" className="btn-primary" onClick={(e) => handleNavClick(e, '#contact')}>Get Started</a></li>
+          <li><a href="#why" onClick={(e) => handleNavClick(e, '#why')}>Why</a></li>
+          <li><a href="#how" onClick={(e) => handleNavClick(e, '#how')}>How</a></li>
+          <li><a href="#services" onClick={(e) => handleNavClick(e, '#services')}>What</a></li>
+          <li><a href="#quick-wins" onClick={(e) => handleNavClick(e, '#quick-wins')}>Proof</a></li>
+          <li><a href="#contact" className="btn btn-primary nav-cta" onClick={(e) => handleNavClick(e, '#contact')}>Get Started</a></li>
         </ul>
         <button 
           className="nav-toggle" 

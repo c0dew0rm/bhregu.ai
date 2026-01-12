@@ -26,12 +26,15 @@ const Footer = () => {
           </div>
           <div className="footer-links-grid">
             <div className="footer-link-group">
-              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>Services</a>
-              <a href="#tech-stack" onClick={(e) => handleNavClick(e, '#tech-stack')}>Tech Stack</a>
+              <a href="#why" onClick={(e) => handleNavClick(e, '#why')}>Why</a>
+              <a href="#how" onClick={(e) => handleNavClick(e, '#how')}>How</a>
             </div>
             <div className="footer-link-group">
-              <a href="#quick-wins" onClick={(e) => handleNavClick(e, '#quick-wins')}>Quick Wins</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a>
+              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>What</a>
+              <a href="#quick-wins" onClick={(e) => handleNavClick(e, '#quick-wins')}>Proof</a>
+            </div>
+            <div className="footer-link-group">
+              <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Get Started</a>
             </div>
           </div>
         </div>

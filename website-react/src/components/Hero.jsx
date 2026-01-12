@@ -57,18 +57,33 @@ const StatItem = ({ number, text, label }) => {
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section id="why" className="hero">
       <div className="hero-background"></div>
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Transform Your Business with
-            <span className="gradient-text"> Enterprise AI Solutions</span>
+            We believe AI should be
+            <span className="gradient-text"> trustworthy, useful, and measurable</span>
           </h1>
           <p className="hero-subtitle">
-            Strategic AI consulting, custom model development, and end-to-end implementation 
-            to accelerate your AI transformation journey.
+            Not hype. Not demos. Real systems that improve decisions, protect data, and deliver ROI—built with governance from day one.
           </p>
+          <div className="golden-circle">
+            <div className="golden-step">
+              <div className="golden-pill">Why</div>
+              <div className="golden-text">Purpose & belief</div>
+            </div>
+            <div className="golden-connector" aria-hidden="true"></div>
+            <div className="golden-step">
+              <div className="golden-pill">How</div>
+              <div className="golden-text">Process & architecture</div>
+            </div>
+            <div className="golden-connector" aria-hidden="true"></div>
+            <div className="golden-step">
+              <div className="golden-pill">What</div>
+              <div className="golden-text">Deliverables & outcomes</div>
+            </div>
+          </div>
           <div className="hero-cta">
             <a href="#contact" className="btn btn-primary" onClick={(e) => {
               e.preventDefault()
@@ -77,20 +92,20 @@ const Hero = () => {
                 const offsetTop = target.offsetTop - 80
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' })
               }
-            }}>Start Your AI Journey</a>
-            <a href="#services" className="btn btn-secondary" onClick={(e) => {
+            }}>Book a Consult</a>
+            <a href="#how" className="btn btn-secondary" onClick={(e) => {
               e.preventDefault()
-              const target = document.querySelector('#services')
+              const target = document.querySelector('#how')
               if (target) {
                 const offsetTop = target.offsetTop - 80
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' })
               }
-            }}>Explore Services</a>
+            }}>See How We Work</a>
           </div>
           <div className="hero-stats">
-            <StatItem number={100} label="AI Projects Delivered" />
-            <StatItem number={50} label="Enterprise Clients" />
-            <StatItem text="24/7" label="Support & Partnership" />
+            <StatItem text="2 weeks" label="AI Health-Check" />
+            <StatItem text="7 days" label="RAG demo" />
+            <StatItem text="Private" label="On‑prem / VPC ready" />
           </div>
         </div>
       </div>

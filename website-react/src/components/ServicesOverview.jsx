@@ -136,9 +136,9 @@ const ServicesOverview = () => {
     <section id="services" className="services-overview">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Our Services</h2>
+          <h2 className="section-title">What we deliver</h2>
           <p className="section-subtitle">
-            End-to-end AI consulting and implementation
+            Strategy, data, models, and production systems—built to ship, scale, and earn trust.
           </p>
         </div>
         <div className="services-grid">
@@ -153,7 +153,7 @@ const ServicesOverview = () => {
                   <div className="service-icon">{service.icon}</div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <div className="flip-hint">Hover to explore</div>
+                  <div className="flip-hint">Click / tap to flip</div>
                 </div>
                 <div className="flip-card-back">
                   <h3>{service.title}</h3>

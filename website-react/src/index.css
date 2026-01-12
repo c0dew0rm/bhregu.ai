@@ -67,7 +67,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    max-width: 1440px;
+    padding: 1rem 3rem;
 }
 
 .nav-brand .logo {
@@ -112,6 +113,28 @@ body {
 
 .nav-menu a:hover::after {
     width: 100%;
+}
+
+.nav-menu a.btn::after,
+.nav-menu a.btn:hover::after {
+    display: none;
+}
+
+.nav-menu a.nav-cta {
+    color: white;
+}
+
+/* Navbar CTA should be more compact than page buttons */
+.nav-menu a.nav-cta.btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-menu a.nav-cta.btn:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
 }
 
 .nav-toggle {
@@ -207,6 +230,47 @@ body {
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
     line-height: 1.8;
+}
+
+.golden-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 auto 2.5rem;
+    flex-wrap: wrap;
+}
+
+.golden-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 140px;
+}
+
+.golden-pill {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 0.9rem;
+}
+
+.golden-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.golden-connector {
+    width: 56px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.45), transparent);
 }
 
 .hero-cta {
@@ -358,6 +422,64 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
+}
+
+/* How We Work */
+.how-we-work {
+    background: var(--bg-secondary);
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.how-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    padding: 2.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: left;
+}
+
+.how-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.how-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+
+.how-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.how-card:hover .how-icon {
+    transform: scale(1.08);
+}
+
+.how-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.how-desc {
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 /* Flip Card Styles */
@@ -631,6 +753,13 @@ section {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
+}
+
+.tech-category-blurb {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: -0.75rem auto 1.5rem;
+    max-width: 40ch;
 }
 
 .tech-tags {
@@ -1056,6 +1185,11 @@ section {
         gap: 1.5rem;
     }
 
+    .navbar .container {
+        max-width: 100%;
+        padding: 1rem 2rem;
+    }
+
     .nav-menu.active {
         left: 0;
     }
@@ -1074,11 +1208,22 @@ section {
         text-align: center;
     }
 
+    /* Keep navbar CTA consistent with mobile full-width buttons */
+    .nav-menu a.nav-cta.btn {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+    }
+
     .hero-stats {
         gap: 2rem;
     }
 
     .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .how-grid {
         grid-template-columns: 1fr;
     }
 

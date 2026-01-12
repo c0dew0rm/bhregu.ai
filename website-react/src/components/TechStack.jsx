@@ -78,31 +78,56 @@ const IconData = () => (
   </svg>
 )
 
+const IconSecurity = () => (
+  <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 12L16 20L16 32C16 40 20 48 32 52C44 48 48 40 48 32L48 20L32 12Z" fill="url(#gradTech6)" opacity="0.18" />
+    <path d="M32 16L20 22L20 32C20 38 23 44 32 47C41 44 44 38 44 32L44 22L32 16Z" stroke="url(#gradTech6)" strokeWidth="2" fill="none" />
+    <path d="M28 32L30 34L36 28" stroke="url(#gradTech6)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <defs>
+      <linearGradient id="gradTech6" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#6366f1" />
+        <stop offset="100%" stopColor="#8b5cf6" />
+      </linearGradient>
+    </defs>
+  </svg>
+)
+
 const techCategories = [
   {
     icon: <IconOrchestration />,
     title: 'MLOps / Orchestration',
+    blurb: 'Track experiments, orchestrate pipelines, and operationalize training.',
     tags: ['MLflow', 'Kubeflow', 'Prefect', 'Airflow']
   },
   {
     icon: <IconServing />,
     title: 'Model Serving / Inference',
+    blurb: 'Deploy models with predictable latency, cost, and reliability.',
     tags: ['BentoML', 'TorchServe', 'Triton', 'Managed Endpoints']
   },
   {
     icon: <IconRAG />,
     title: 'LLM Orchestration / RAG',
+    blurb: 'Grounded answers with retrieval, evaluation, and secure access.',
     tags: ['LangChain', 'LlamaIndex', 'Milvus', 'Pinecone']
   },
   {
     icon: <IconMonitoring />,
     title: 'Monitoring & Governance',
+    blurb: 'Quality, drift, and auditability—so trust is measurable.',
     tags: ['Evidently.ai', 'Fiddler', 'WhyLabs', 'Custom Audit Logs']
   },
   {
     icon: <IconData />,
     title: 'Data Infrastructure',
+    blurb: 'Pragmatic foundations: streaming, storage, features, and access control.',
     tags: ['PostgreSQL', 'Kafka', 'Feast', 'S3']
+  },
+  {
+    icon: <IconSecurity />,
+    title: 'Security & Privacy',
+    blurb: 'Isolation, access control, and audit trails—built for enterprise risk.',
+    tags: ['VPC / On‑prem', 'IAM / RBAC', 'KMS / Vault', 'Audit Logs']
   }
 ]
 
@@ -111,9 +136,9 @@ const TechStack = () => {
     <section id="tech-stack" className="tech-stack">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Technology & Tooling</h2>
+          <h2 className="section-title">How we build (tooling)</h2>
           <p className="section-subtitle">
-            Cloud-agnostic, production-ready stack optimized for performance and scalability
+            A cloud‑agnostic reference stack. We adapt to your constraints and integrate with what you already run.
           </p>
         </div>
         <div className="tech-categories">
@@ -121,6 +146,7 @@ const TechStack = () => {
             <div key={index} className="tech-category">
               <div className="tech-category-icon">{category.icon}</div>
               <h4>{category.title}</h4>
+              <p className="tech-category-blurb">{category.blurb}</p>
               <div className="tech-tags">
                 {category.tags.map((tag, tagIndex) => (
                   <span key={tagIndex} className="tech-tag">{tag}</span>

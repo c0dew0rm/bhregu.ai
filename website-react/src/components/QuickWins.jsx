@@ -48,21 +48,21 @@ const quickWins = [
     icon: <IconWorkshop />,
     title: 'Free C-Suite Workshop',
     duration: '2 Hours',
-    description: '"How generative AI will affect your KPIs and compliance" — Strategic session for leadership and risk teams',
+    description: 'Align leaders on what’s possible, what’s risky, and what’s worth doing next.',
     featured: false
   },
   {
     icon: <IconHealthCheck />,
     title: 'AI Health-Check',
     duration: '2 Weeks',
-    description: 'Comprehensive assessment creating a clear 90-day roadmap and committed POC scope for your organization',
+    description: 'A clear 90‑day roadmap + a scoped pilot with success metrics and governance.',
     featured: true
   },
   {
     icon: <IconRAG />,
     title: 'RAG in a Week',
     duration: '1 Week',
-    description: 'Fixed-price demo: Ingest 10k documents + answer UI — Perfect for sales demos and proof of concept',
+    description: 'A grounded Q&A demo over your documents—built for security and evaluation.',
     featured: false
   }
 ]
@@ -84,8 +84,8 @@ const QuickWins = () => {
     <section id="quick-wins" className="quick-wins">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Quick Wins & Immediate Value</h2>
-          <p className="section-subtitle">Get started today with these proven offerings</p>
+          <h2 className="section-title">Proof (quick wins)</h2>
+          <p className="section-subtitle">Start small, prove value fast, then scale responsibly.</p>
         </div>
         <div className="quick-wins-grid">
           {quickWins.map((win, index) => (
